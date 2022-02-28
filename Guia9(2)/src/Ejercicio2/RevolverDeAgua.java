@@ -33,13 +33,64 @@ aprieta el gatillo. Sí el revolver tira el agua el jugador se moja y se termina
 sino se moja, se pasa al siguiente jugador hasta que uno se moje. Si o si alguien se
 tieneque mojar. Al final del juego, se debe mostrar que jugador se mojó.
 Pensar la lógica necesaria para realizar esto, usando los atributos de la clase Juego.*/
-
 package Ejercicio2;
 
-/**
- *
- * @author Win 7
- */
-public class NewClass {
-    
+public class RevolverDeAgua {
+
+    private double posicionActual;
+    private double posicionAgua;
+
+    public RevolverDeAgua() {
+    }
+
+    public RevolverDeAgua(double posicionActual, double posicionAgua) {
+        this.posicionActual = posicionActual;
+        this.posicionAgua = posicionAgua;
+    }
+
+    public double getPosicionActual() {
+        return posicionActual;
+    }
+
+    public void setPosicionActual(double posicionActual) {
+        this.posicionActual = posicionActual;
+    }
+
+    public double getPosicionAgua() {
+        return posicionAgua;
+    }
+
+    public void setPosicionAgua(double posicionAgua) {
+        this.posicionAgua = posicionAgua;
+    }
+
+    public void llenarRevolver() {
+        this.posicionActual = (Math.round(Math.random() * 10));
+        this.posicionAgua = (Math.round(Math.random() * 10));
+        
+        System.out.println(this.posicionActual);
+        System.out.println("*****");
+        System.out.println(this.posicionAgua);
+    }
+
+    public boolean mojar() {
+        if (this.posicionActual == this.posicionAgua) {
+            return true;
+        }
+        return false;
+    }
+
+    public void siguienteChorro() {
+        this.posicionActual =(Math.round(Math.random() * 10)) ;
+        
+        System.out.println("las nuevas posicion");
+        System.out.println(this.posicionActual);
+       
+    }
+
+    @Override
+    public String toString() {
+        return "RevolverDeAgua{" + "posicionActual=" + posicionActual + ", posicionAgua=" + posicionAgua + '}';
+    }
+
 }
